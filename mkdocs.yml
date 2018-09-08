@@ -1,0 +1,12 @@
+site_name: cosmos
+site_description: Cosmos, sheetu, or time 2.0... anyway, this is an application about controlling time.
+repo_url: https://github.com/zee93/cosmos-BE
+site_dir: site
+copyright: Copyright &copy; 2018, <a href="https://github.com/zee93">zee93</a>.
+dev_addr: 0.0.0.0:8001
+
+pages:
+  - Home: 'index.md'
+  - API:
+    - Authentication: 'api/authentication.md'
+    - Users: 'api/users.md'
