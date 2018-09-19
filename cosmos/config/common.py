@@ -19,11 +19,13 @@ class Common(Configuration):
 
         # Third party apps
         'rest_framework',            # utilities for rest apis
+        'rest_framework_swagger',
         'rest_framework.authtoken',  # token authentication
         'django_filters',            # for filtering rest endpoints
 
         # Your apps
-        'cosmos.users',
+        'cosmos.core',
+        'cosmos.accounts',
 
     )
 
@@ -53,7 +55,7 @@ class Common(Configuration):
     # Postgres
     DATABASES = {
         'default': dj_database_url.config(
-            default='postgres://postgres:@postgres:5432/postgres',
+            default='postgres://dexter:123qwe@localhost:5432/cosmos',
             conn_max_age=int(os.getenv('POSTGRES_CONN_MAX_AGE', 600))
         )
     }
@@ -86,7 +88,7 @@ class Common(Configuration):
     TEMPLATES = [
         {
             'BACKEND': 'django.template.backends.django.DjangoTemplates',
-            'DIRS': STATICFILES_DIRS,
+            'DIRS': os.path.normpath(join(os.path.dirname(BASE_DIR), 'templates')),
             'APP_DIRS': True,
             'OPTIONS': {
                 'context_processors': [
@@ -180,7 +182,7 @@ class Common(Configuration):
     }
 
     # Custom user app
-    AUTH_USER_MODEL = 'users.User'
+    AUTH_USER_MODEL = 'accounts.User'
 
     # Django Rest Framework
     REST_FRAMEWORK = {
@@ -199,3 +201,10 @@ class Common(Configuration):
             'rest_framework.authentication.TokenAuthentication',
         )
     }
+    AUTHENTICATION_BACKENDS = (
+        'social_core.backends.facebook.FacebookOAuth2',
+        'django.contrib.auth.backends.ModelBackend',
+    )
+    SOCIAL_AUTH_FACEBOOK_KEY = os.getenv('SOCIAL_AUTH_FACEBOOK_KEY')
+    SOCIAL_AUTH_FACEBOOK_SECRET = os.getenv('SOCIAL_AUTH_FACEBOOK_SECRET')
+    SOCIAL_AUTH_FACEBOOK_SCOPE = ['email', ]

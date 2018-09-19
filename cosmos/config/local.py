@@ -5,6 +5,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 class Local(Common):
     DEBUG = True
+    SECRET_KEY = '123qwe'
 
     # Testing
     INSTALLED_APPS = Common.INSTALLED_APPS
