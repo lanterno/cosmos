@@ -1,5 +1,4 @@
 import os
-from os.path import join
 from distutils.util import strtobool
 import dj_database_url
 from configurations import Configuration
@@ -170,4 +169,4 @@ class Common(Configuration):
     )
     # SOCIAL_AUTH_FACEBOOK_KEY = os.getenv('SOCIAL_AUTH_FACEBOOK_KEY')
     # SOCIAL_AUTH_FACEBOOK_SECRET = os.getenv('SOCIAL_AUTH_FACEBOOK_SECRET')
-    SOCIAL_AUTH_FACEBOOK_SCOPE = ['email', ]
+    # SOCIAL_AUTH_FACEBOOK_SCOPE = ['email', ]
