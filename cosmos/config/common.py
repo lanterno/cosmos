@@ -22,6 +22,7 @@ class Common(Configuration):
         'cosmos.core',
         'cosmos.accounts',
         'cosmos.projects',
+        'cosmos.time_logs',
 
     )
 
