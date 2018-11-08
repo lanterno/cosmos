@@ -21,6 +21,7 @@ class Common(Configuration):
         # Your apps
         'cosmos.core',
         'cosmos.accounts',
+        'cosmos.projects',
 
     )
 
